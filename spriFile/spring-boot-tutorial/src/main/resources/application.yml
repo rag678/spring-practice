@@ -1,0 +1,42 @@
+spring:
+  profiles:
+    active: "qa"
+server:
+  port:
+    8082
+---
+spring:
+  profiles: qa
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/springdatabase
+    name: springdatabase
+    password: KULIZA123@mysql
+  jpa:
+    hibernate:
+      ddl-auto: update
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - "*"
+        exclude: "env,beans"
+welcome:
+  message: Welcome to Daily Code Practice!!
+
+---
+spring:
+  profiles: prod
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/springdatabase
+    name: springdatabase
+    password: KULIZA123@mysql
+  jpa:
+    hibernate:
+      ddl-auto: update
+welcome:
+  message: Welcome to Daily Code Practice!!
